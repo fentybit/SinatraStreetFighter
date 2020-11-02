@@ -1,5 +1,9 @@
 class Character < ActiveRecord::Base 
-    belongs_to :user 
+    has_secure_password
     has_many :moves 
     has_many :stages, through: :moves 
+
+    # slug instance method
+
+    # slug class method
 end 
