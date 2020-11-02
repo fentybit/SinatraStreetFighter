@@ -6,6 +6,11 @@
     padding: 0;
   }
 
+  .container {
+    text-align: center;
+    display: block;
+  }
+
   html, body {
     height: 100%;
     width: 100%;
