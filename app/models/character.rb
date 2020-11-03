@@ -3,7 +3,11 @@ class Character < ActiveRecord::Base
     has_many :moves 
     has_many :stages, through: :moves 
 
-    # slug instance method
+    def slug 
+        self.name.downcase.split.join("-")
+    end 
 
-    # slug class method
+    def self.find_by_slug(slug)
+        self.all.find {|character| character.slug == slug}
+    end 
 end 
