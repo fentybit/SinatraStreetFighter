@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201031224114) do
+ActiveRecord::Schema.define(version: 2020_10_31_224114) do
 
   create_table "characters", force: :cascade do |t|
-    t.string "username",        default: "username"
-    t.string "email",           default: "email"
+    t.string "username", default: "username"
+    t.string "email", default: "email"
     t.string "password_digest", default: "password"
     t.string "name"
     t.string "quote"
     t.string "image"
-    t.string "video",           default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
+    t.string "video", default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
   end
 
   create_table "moves", force: :cascade do |t|
-    t.string  "name"
+    t.string "name"
     t.integer "character_id"
   end
 
