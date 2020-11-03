@@ -1,9 +1,19 @@
 class CharactersController < ApplicationController
-    #GET 'sign up'
+    get "/signup" do 
+        erb :'characters/new'
+      end 
+    
+    post "/signup" do 
+        if params[:username] == "" || params[:email] == "" || params[:password] == ""
+            redirect to '/signup'
+        else  
+            erb :'characters/characters'
+        end 
+    end 
 
-    #POST 'sign up'
-
-    #GET 'log in'
+    get '/login' do 
+        erb :'characters/login'
+    end 
 
     #POST 'sign up'
 
