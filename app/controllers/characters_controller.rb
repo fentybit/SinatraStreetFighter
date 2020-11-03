@@ -1,4 +1,4 @@
-class CharactersController < ApplicationController.rb
+class CharactersController < ApplicationController
     #GET 'sign up'
 
     #POST 'sign up'

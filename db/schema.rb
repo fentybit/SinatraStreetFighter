@@ -14,14 +14,13 @@
 ActiveRecord::Schema.define(version: 20201031224114) do
 
   create_table "characters", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "password_digest"
-    t.string  "name"
-    t.string  "quote"
-    t.string  "image"
-    t.string  "video",           default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
-    t.integer "user_id"
+    t.string "username",        default: "username"
+    t.string "email",           default: "email"
+    t.string "password_digest", default: "password"
+    t.string "name"
+    t.string "quote"
+    t.string "image"
+    t.string "video",           default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
   end
 
   create_table "moves", force: :cascade do |t|
