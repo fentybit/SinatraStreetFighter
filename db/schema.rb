@@ -13,13 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_10_31_224114) do
 
   create_table "characters", force: :cascade do |t|
-    t.string "username", default: "username"
-    t.string "email", default: "email"
-    t.string "password_digest", default: "password"
     t.string "name"
     t.string "quote"
     t.string "image"
     t.string "video", default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
+    t.integer "user_id"
   end
 
   create_table "moves", force: :cascade do |t|
@@ -35,6 +33,12 @@ ActiveRecord::Schema.define(version: 2020_10_31_224114) do
   create_table "stages", force: :cascade do |t|
     t.string "name"
     t.string "image"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", default: "username"
+    t.string "email", default: "email"
+    t.string "password_digest", default: "password"
   end
 
 end

@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base 
-    has_secure_password
+    belongs_to :user
     has_many :moves 
     has_many :stages, through: :moves 
 

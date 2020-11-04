@@ -1,0 +1,9 @@
+<%= @character.name %>
+<br>
+Current skills:
+<%= @character.moves %><br>
+
+Would you like to update character's moves?
+<% Move.all.each do |move| %>
+    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>"><%= move.name %><br>
+<% end %>

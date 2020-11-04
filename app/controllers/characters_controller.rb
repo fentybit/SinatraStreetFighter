@@ -1,48 +1,31 @@
 class CharactersController < ApplicationController
-    get '/signup' do 
-        if logged_in?
-            redirect to '/characters'
-        else 
-            erb :'characters/create_user'
-        end 
-      end 
-    
-    post '/signup' do 
-        if params[:username] == "" || params[:email] == "" || params[:password] == ""
-            redirect to '/signup'
-        else  
-            @character = Character.create(username: params[:username], email: params[:email], password: params[:password])
-            session[:character_id] = @character.id 
-            redirect to '/characters'
-        end 
-    end 
-
-    get '/login' do 
-        if logged_in?
-            redirect to '/characters'
-        else 
-            erb :'characters/login'
-        end 
-    end 
-
-    post '/login' do 
-        @character = Character.find_by(username: params[:username])
-
-        if @character && @character.authenticate(params[:password])
-            session[:character_id] = @character.id 
-            redirect to '/characters'
-        else
-            redirect to '/login'  
-        end 
-    end 
 
     get '/characters' do 
-        erb :'characters/characters'
+        if logged_in?
+            erb :'characters/characters'
+        else 
+            redirect to '/login'
+        end 
     end 
     
-    #CREATE 'character'
+    post '/characters' do 
+        @character = Character.find_by_id(params[:character_id])
+        if current_user.characters.include?(@character)
+            redirect to '/characters' 
+        else 
+            current_user.characters << @character 
+        end 
+        redirect to "/characters/#{@character.slug}"
+    end 
 
-    #READ 'character'
+    get '/characters/:slug' do 
+        if logged_in?
+            @character.find_by_slug(params[:slug])
+            erb :'characters/show'
+        else  
+            redirect to '/login'
+        end 
+    end 
 
     #UPDATE/EDIT 'character'
 

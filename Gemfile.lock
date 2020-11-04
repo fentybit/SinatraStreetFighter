@@ -57,6 +57,8 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.6)
     rack (2.2.3)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.1.0)
       rack
     rack-test (1.1.0)
@@ -123,6 +125,7 @@ DEPENDENCIES
   database_cleaner!
   dotenv
   pry
+  rack-flash3
   rack-test
   rake
   require_all

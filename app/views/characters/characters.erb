@@ -1,1 +1,24 @@
-Here are the list of all of your chars!
+<h4>You have <%= current_user.characters.size %> characters.</h4>
+
+<% current_user.characters.each do |character| %>
+    <h3><%= character.name %></h3>
+    <img src="<%= character.image %>">
+    <br>
+<% end %>
+
+<h4>Would you like to add a character?</h4>
+
+<form method="POST" action="/characters">
+    <div class="form-group" style="width:200px;">
+        <select class="custom-select" name="character_id" id="character_id">
+            <option selected="">Select one character</option>
+            
+            <% Character.all.each do |character| %>
+            <option value="<%= character.id %>"><%= character.name%></option>
+            <% end %>
+
+            <p><input type="submit" class="btn btn-outline-warning"></p>
+        </select>
+    </div>
+</form>
+
