@@ -11,6 +11,8 @@ class CharactersController < ApplicationController
     post '/characters' do 
         @character = Character.find_by_id(params[:character_id])
         if current_user.characters.include?(@character)
+            flash[:message] = "You already have the character."
+
             redirect to '/characters' 
         else 
             current_user.characters << @character 
@@ -20,7 +22,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug' do 
         if logged_in?
-            @character.find_by_slug(params[:slug])
+            @character = Character.find_by_slug(params[:slug])
             erb :'characters/show'
         else  
             redirect to '/login'

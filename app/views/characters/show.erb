@@ -1,9 +1,27 @@
-<%= @character.name %>
+<h1><%= @character.name %></h1>
 <br>
-Current skills:
-<%= @character.moves %><br>
+<h3>Fighting moves</h3>
+<br>
 
-Would you like to update character's moves?
-<% Move.all.each do |move| %>
-    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>"><%= move.name %><br>
+<% if @character.moves.empty? %>
+    There is no fighting moves. Would you like to add/edit fighting moves?<br>
+    <button type="button" class="btn btn-outline-warning"><a href="/<%= @character.slug %>/moves/new">Add Fighting Moves</a></button>
+<% else %>
+    <%= @character.moves.each {|move| move} %><br>
+    <button type="button" class="btn btn-outline-warning"><a href="/<%= @character.slug %>/moves/edit">Add/Edit Fighting Moves</a></button>
 <% end %>
+<br>
+
+<h3>Stage</h3>
+<br>
+
+<% if @character.stages.empty? %>
+    Select a Stage to play.<br>
+    <button type="button" class="btn btn-outline-warning"><a href="/<%= @character.slug %>/stages/new">Add Stage Battle</a></button>
+<% else %>
+    <%= @character.stages.last %>
+    <button type="button" class="btn btn-outline-warning"><a href="/<%= @character.slug %>/stages/edit">Add/Edit Stage Battle</a></button>
+<% end %>
+<br>
+
+<button type="button" class="btn btn-outline-danger"><a href="/<%= @character.slug %>/stages">Are you ready for your battle?</button>

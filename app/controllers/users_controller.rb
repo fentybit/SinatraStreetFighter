@@ -1,15 +1,10 @@
-require 'rack-flash'
-
 class UsersController < ApplicationController 
-    configure do 
-        use Rack::Flash   
-    end 
 
     get '/signup' do 
         if logged_in?
             redirect to '/characters'
         else 
-            erb :'users/create_user'
+            erb :'users/signup'
         end 
       end 
     
@@ -38,7 +33,11 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
             redirect to '/characters'
-        else
+        elsif !@user
+            flash[:message] = "Invalid Username."
+            redirect to '/login'  
+        elsif !@user.authenticate(params[:password])
+            flash[:message] = "Invalid Password."
             redirect to '/login'  
         end 
     end 

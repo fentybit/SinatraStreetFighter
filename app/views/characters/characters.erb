@@ -1,8 +1,12 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %><br><br>
+<% end %>
+
 <h4>You have <%= current_user.characters.size %> characters.</h4>
 
 <% current_user.characters.each do |character| %>
-    <h3><%= character.name %></h3>
-    <img src="<%= character.image %>">
+    <h3><a href="/characters/<%= character.slug %>"><%= character.name %></a></h3>
+    <a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"></a>
     <br>
 <% end %>
 
