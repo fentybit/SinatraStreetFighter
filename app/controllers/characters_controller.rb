@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
 
     get '/characters' do 
         if logged_in?
-            erb :'characters/characters'
+            erb :'characters/index'
         else 
             redirect to '/login'
         end 
@@ -29,8 +29,6 @@ class CharactersController < ApplicationController
         end 
     end 
 
-    #UPDATE/EDIT 'character'
-
     get '/logout' do 
         if logged_in?
             session.clear 
@@ -39,6 +37,5 @@ class CharactersController < ApplicationController
             redirect to 'login'
         end 
     end 
-
 
 end 

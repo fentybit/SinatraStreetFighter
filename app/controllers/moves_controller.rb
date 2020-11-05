@@ -13,6 +13,10 @@ class MovesController < ApplicationController
         @character = Character.find_by_slug(params[:slug])
         @character.update(params[:character])
 
+        if !params[:move][:name].empty?
+            @character.moves << Move.create(params[:move])
+        end 
+
         redirect to "/characters/#{@character.slug}"
     end 
 
@@ -28,6 +32,10 @@ class MovesController < ApplicationController
     post '/:slug/moves/edit' do 
         @character = Character.find_by_slug(params[:slug])
         @character.update(params[:character])
+
+        if !params[:move][:name].empty?
+            @character.moves << Move.create(params[:move])
+        end 
 
         redirect to "/characters/#{@character.slug}"
     end 
