@@ -7,4 +7,5 @@ end
 use UsersController
 use CharactersController
 use MovesController
+use StagesController
 run ApplicationController

@@ -34,7 +34,7 @@ class CharactersController < ApplicationController
             session.clear 
             redirect to '/login'
         else
-            redirect to 'login'
+            redirect to '/login'
         end 
     end 
 

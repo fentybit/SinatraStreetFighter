@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(version: 2020_10_31_224114) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "quote"
+    t.text "bio"
     t.string "image"
-    t.string "video", default: "https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
+    t.string "video"
     t.integer "user_id"
   end
 

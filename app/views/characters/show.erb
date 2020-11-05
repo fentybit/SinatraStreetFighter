@@ -20,7 +20,7 @@
 <br>
 
 <% if @character.stages.empty? %>
-    Select a Stage to play.<br>
+    Select a Stage to play<br>
     <a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-warning" value="Add Stage Battle"></a>
 <% else %>
     <%= @character.stages.last %>

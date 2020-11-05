@@ -3,8 +3,9 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
     create_table :characters do |t|
       t.string :name
       t.string :quote
+      t.text :bio
       t.string :image 
-      t.string :video, default:"https://www.youtube.com/watch?time_continue=3&v=fnH0kvv8qdk&feature=emb_logo"
+      t.string :video
       t.integer :user_id
     end 
   end
