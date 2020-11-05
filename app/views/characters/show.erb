@@ -8,7 +8,9 @@
     There are no fighting moves. Would you like to add/edit fighting moves?<br>
     <a href="/<%= @character.slug %>/moves/new"><input type="submit" class="btn btn-outline-warning" value="Add Fighting Moves"></a>
 <% else %>
-    <%= @character.moves.each {|move| move} %><br>
+    <% @character.moves.each do |move| %>
+        <%= move.name %><br>
+    <% end %>
     <a href="/<%= @character.slug %>/moves/edit"><input type="submit" class="btn btn-outline-warning" value="Add/Edit Fighting Moves"></a>
 <% end %>
 
@@ -28,5 +30,8 @@
 
 <br><br><br><br>
 
+<a href="/characters"><input type="submit" class="btn btn-outline-warning" value="Back to Characters List"></a>
+
+<br><br>
 
 <a href="/<%= @character.slug %>/stages"><input type="submit" class="btn btn-outline-danger" value="Are you ready for your battle?"></a>

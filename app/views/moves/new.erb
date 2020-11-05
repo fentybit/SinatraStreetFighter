@@ -1,5 +1,8 @@
-<form method="POST" action="/">
+<form method="POST" action="/<%= @character.slug %>/moves/new">
 <% Move.all.each do |move| %>
-    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>"><%= move.name %><br>
+
+    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>"> <%= move.name %><br>
 <% end %>
+
+<input type="submit" class="btn btn-outline-warning" value="Add Fighting Moves">
 </form>

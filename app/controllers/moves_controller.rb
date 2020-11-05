@@ -3,21 +3,33 @@ class MovesController < ApplicationController
     get '/:slug/moves/new' do
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
-            erb :'moves/edit'
+            erb :'moves/new'
         else  
             redirect to '/login'
         end     
     end 
 
+    post '/:slug/moves/new' do
+        @character = Character.find_by_slug(params[:slug])
+        @character.update(params[:character])
 
-    get '/:slug/moves/edit' do 
-    
+        redirect to "/characters/#{@character.slug}"
     end 
 
-    #CREATE 'moves/new'
+    get '/:slug/moves/edit' do 
+        if logged_in?
+            @character = Character.find_by_slug(params[:slug])
+            erb :'moves/edit'
+        else  
+            redirect to '/login'
+        end 
+    end 
 
-    #POST 'moves/:slug'
+    post '/:slug/moves/edit' do 
+        @character = Character.find_by_slug(params[:slug])
+        @character.update(params[:character])
 
+        redirect to "/characters/#{@character.slug}"
+    end 
     
-
 end 

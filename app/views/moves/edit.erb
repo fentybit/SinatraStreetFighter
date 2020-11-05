@@ -1,0 +1,8 @@
+<form method="POST" action="/<%= @character.slug %>/moves/edit">
+<% Move.all.each do |move| %>
+
+    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>" <%='checked' if @character.moves.include?(move) %>> <%= move.name %><br>
+<% end %>
+
+<input type="submit" class="btn btn-outline-warning" value="Update Fighting Moves">
+</form>
