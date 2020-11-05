@@ -1,13 +1,16 @@
 <form method="POST" action="/<%= @character.slug %>/moves/edit">
-<% Move.all.each do |move| %>
+    <input type="hidden" name="_method" value="PATCH">
 
-    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>" <%='checked' if @character.moves.include?(move) %>> <%= move.name %><br>
-<% end %>
+    <% Move.all.each do |move| %>
+        <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>" <%='checked' if @character.moves.include?(move) %>> <%= move.name %><br>
+    <% end %>
 
-<br>
-New fighting move
-<input type="text" class="form-control" placeholder="New fighting move" name="move[name]">
-<br>
+    <br>
+    
+    New fighting move
+    <input type="text" class="form-control" placeholder="New fighting move" name="move[name]">
+    
+    <br>
 
-<input type="submit" class="btn btn-outline-warning" value="Update Fighting Moves">
+    <input type="submit" class="btn btn-outline-warning" value="Update Fighting Moves">
 </form>

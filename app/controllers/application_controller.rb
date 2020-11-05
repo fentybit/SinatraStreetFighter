@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash  
   end
 
-  get "/" do
+  get '/' do
     erb :welcome
   end
 

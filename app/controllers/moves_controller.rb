@@ -29,7 +29,7 @@ class MovesController < ApplicationController
         end 
     end 
 
-    post '/:slug/moves/edit' do 
+    patch '/:slug/moves/edit' do 
         @character = Character.find_by_slug(params[:slug])
         @character.update(params[:character])
 

@@ -1,9 +1,9 @@
 <% if flash.has?(:message) %>
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:message] %>  
-</div>
-<br><br>
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:message] %>  
+    </div>
+    <br><br>
 <% end %>
 
 <form method="POST" action="/login">
