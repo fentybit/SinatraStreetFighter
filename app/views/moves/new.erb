@@ -1,0 +1,5 @@
+<form method="POST" action="/">
+<% Move.all.each do |move| %>
+    <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>"><%= move.name %><br>
+<% end %>
+</form>

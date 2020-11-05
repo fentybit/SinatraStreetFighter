@@ -1,6 +1,6 @@
 class MovesController < ApplicationController
 
-    get '/:slug/moves' do
+    get '/:slug/moves/new' do
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
             erb :'moves/edit'
@@ -9,7 +9,10 @@ class MovesController < ApplicationController
         end     
     end 
 
-    # patch 
+
+    get '/:slug/moves/edit' do 
+    
+    end 
 
     #CREATE 'moves/new'
 
