@@ -1,5 +1,4 @@
-class CharactersController < ApplicationController
-    
+class CharactersController < ApplicationController 
     get '/characters' do 
         if logged_in?
             erb :'characters/index'
@@ -39,6 +38,16 @@ class CharactersController < ApplicationController
 
             erb :'characters/show'
         else  
+            redirect to '/login'
+        end 
+    end 
+
+    get '/characters/:slug/battle' do 
+        if logged_in?
+            @character = Character.find_by_slug(params[:slug])
+
+            erb :'characters/battle'
+        else
             redirect to '/login'
         end 
     end 
