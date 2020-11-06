@@ -30,12 +30,13 @@ class CharactersController < ApplicationController
     get '/characters/:slug' do 
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
-            binding.pry
-            Move.all.each do |move|
-                move.stage_moves.move_id || stage_id
+                        
+            @character.moves.each do |move|
+                move.stage_moves.each do |stage_move|
+                    @stage = Stage.all.find {|stage| stage.id == stage_move.stage_id}
+                end 
             end 
 
-            # @stage
             erb :'characters/show'
         else  
             redirect to '/login'

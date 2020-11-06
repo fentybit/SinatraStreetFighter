@@ -24,8 +24,8 @@
     Select a Stage to play<br>
     <a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-success" value="Add Stage Battle"></a>
 <% else %>
-    <%= @stage.name %>
-    <a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Add/Edit Stage Battle"></a>
+    <%= @stage.name %><br>
+    <a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Edit Stage Battle"></a>
 <% end %>
 
 <br><br><br><br>
