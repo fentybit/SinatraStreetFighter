@@ -1,5 +1,9 @@
 class UsersController < ApplicationController 
 
+    # before do
+    #     require_login
+    # end 
+
     get '/signup' do 
         if logged_in?
             redirect to '/characters'
@@ -9,11 +13,16 @@ class UsersController < ApplicationController
       end 
     
     post '/signup' do 
-        if params[:username] == "" || params[:email] == "" || params[:password] == ""
-            flash[:message] = "Invalid Input. Please enter your information."
+        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        
+        if User.find_by(username: @user.username)
+            flash[:message] = "The username already exists. Please use a different username."
+            redirect to '/signup'
+        elsif !@user.save
+            flash[:message] = "Please enter all required fields."
             redirect to '/signup'
         else  
-            @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+            @user.save
             session[:user_id] = @user.id 
             redirect to '/characters'
         end 
