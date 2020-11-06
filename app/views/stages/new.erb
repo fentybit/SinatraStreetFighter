@@ -1,9 +1,18 @@
 <form method="POST" action="/<%= @character.slug %>/stages/new">
-<% Stage.all.each do |stage| %>
-    <input type="radio" name="character[stage_ids][]" value="<%= stage.id %>"> <%= stage.name %><img src="/images/field-of-fate.jpg"><br>
-<% end %>
+    <% Stage.all.each do |stage| %>
+        <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
+            <%= stage.name %>
+            <br>    
+            <img src="<%= stage.image %>" style="width:600px;">
+        </button>
+        
+        <br><br>
+    <% end %>
 
-<br>
-
-<input type="submit" class="btn btn-outline-warning" value="Add Stage">
+    <br>
+    
 </form>
+
+<br><br>
+
+<a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to Character"></a>

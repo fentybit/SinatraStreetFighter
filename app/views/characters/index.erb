@@ -6,15 +6,36 @@
     <br><br>
 <% end %>
 
-<h4>You have <%= current_user.characters.size %> characters.</h4>
-
 <% current_user.characters.each do |character| %>
     <h3><a href="/characters/<%= character.slug %>"><%= character.name %></a></h3>
     <a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"></a>
-    <br>
+    
+    <br><br>
+
+    <a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a>
+
+    <br><br>
+    
+    <form method="POST" action="/characters/<%= character.id %>">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" class="btn btn-outline-danger" value="Delete Character">
+    </form>
+
+    <br><br>
 <% end %>
 
-<h4>Would you like to add a character?</h4>
+<br><br>
+
+<% if current_user.characters.size == 1 %>
+    <h4>You have 1 character.</h4>
+    <h4>Would you like to add another character?</h4>
+<% elsif current_user.characters.size > 1 %>
+    <h4>You have <%= current_user.characters.size %> characters.</h4>
+    <h4>Would you like to add another character?</h4>
+<% else %>
+    <h4>Would you like to add a character?</h4>
+<% end %>
+
 
 <form method="POST" action="/characters">
     <div class="form-group" style="width:200px;">
@@ -28,9 +49,11 @@
         </select>
     </div>
 
-    <br><br>
+    <br>
 
-    <p><input type="submit" class="btn btn-outline-success"></p>
+    <input type="submit" class="btn btn-outline-success">
 </form>
+
+<br><br>
 
 <p><a href="/logout"><input type="submit" class="btn btn-outline-danger" value="Log Out"></a></p>

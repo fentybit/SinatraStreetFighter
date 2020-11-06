@@ -9,9 +9,14 @@ class StagesController < ApplicationController
     end 
 
     post '/:slug/stages/new' do 
-        binding.pry
         @character = Character.find_by_slug(params[:slug])
-        @character.update(params[:character])
+
+        binding.pry
+        
+        @character.moves.collect do |move|
+            @stage = Stage.find_by_id(params[:stage][:id])
+            move.stages << @stage
+        end 
 
         redirect to "/characters/#{@character.slug}"
     end 
