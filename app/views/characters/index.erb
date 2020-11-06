@@ -15,13 +15,6 @@
     <a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a>
 
     <br><br>
-    
-    <form method="POST" action="/characters/<%= character.id %>">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" class="btn btn-outline-danger" value="Delete Character">
-    </form>
-
-    <br><br>
 <% end %>
 
 <br><br>
@@ -33,7 +26,7 @@
     <h4>You have <%= current_user.characters.size %> characters.</h4>
     <h4>Would you like to add another character?</h4>
 <% else %>
-    <h4>Would you like to add a character?</h4>
+    <h4>Let's add a new character.</h4>
 <% end %>
 
 

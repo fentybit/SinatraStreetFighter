@@ -1,6 +1,13 @@
 <h1><%= @character.name %></h1>
 <img src="<%= @character.image %>">
 
+<br><br>
+
+<form method="POST" action="/characters/<%= @character.slug %>">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" class="btn btn-outline-danger" value="Delete Character">
+</form>
+
 <br>
 <h3>Fighting moves</h3>
 <br>

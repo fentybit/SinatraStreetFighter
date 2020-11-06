@@ -19,9 +19,9 @@ class CharactersController < ApplicationController
         redirect to "/characters/#{@character.slug}"
     end 
     
-    delete '/characters/:id' do 
-        @character = Character.find_by_id(params[:id])
-        @character.delete
+    delete '/characters/:slug' do 
+        @character = Character.find_by_slug(params[:slug])
+        @character.destroy
 
         redirect to '/characters'
     end 
