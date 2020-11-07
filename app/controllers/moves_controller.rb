@@ -14,8 +14,10 @@ class MovesController < ApplicationController
         @character.update(params[:character])
 
         if !params[:move][:name].empty?
-            @character.moves << Move.create(params[:move])
+            @character.moves << Move.find_or_create_by(name: params[:move][:name])
         end 
+
+        @character.save
 
         redirect to "/characters/#{@character.slug}"
     end 
@@ -34,8 +36,10 @@ class MovesController < ApplicationController
         @character.update(params[:character])
 
         if !params[:move][:name].empty?
-            @character.moves << Move.create(params[:move])
+            @character.moves << Move.find_or_create_by(name: params[:move][:name])
         end 
+
+        @character.save
 
         redirect to "/characters/#{@character.slug}"
     end 
