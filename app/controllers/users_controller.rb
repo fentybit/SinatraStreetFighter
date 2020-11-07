@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         else 
             erb :'users/signup'
         end 
-      end 
+    end 
     
     post '/signup' do 
         @user = User.new(username: params[:username], email: params[:email], password: params[:password])
@@ -57,8 +57,40 @@ class UsersController < ApplicationController
         end 
     end 
 
-    get '/index'
-        erb :'/users/index'
+    get '/index' do
+        if logged_in?
+            erb :'/users/index'
+        else  
+            redirect to '/login'
+        end 
+    end 
+
+    get '/edit' do 
+        if logged_in?
+            erb :'users/edit'
+        else  
+            redirect to '/login'
+        end 
+    end 
+
+    patch '/edit' do 
+        current_user.update(params[:user])
+        redirect to '/index'
+    end 
+
+    get '/delete' do 
+        if logged_in?
+            erb :'users/delete'
+        else  
+            redirect to '/login'
+        end 
+    end 
+
+    delete '/delete' do 
+        current_user.destroy
+        session.clear 
+        
+        redirect to '/'
     end 
 
     get '/logout' do 

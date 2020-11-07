@@ -1,0 +1,32 @@
+<form method="POST" action="/edit">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for="username">Username</label>
+    <input type="text" name="user[username]" placeholder="<%= current_user.username %>" value="<%= current_user.username %>">
+    </label>
+    
+    <br>
+
+    <label for="email">Email address</label>
+    <input type="text" name="user[email]" placeholder="<%= current_user.email %>" value="<%= current_user.email %>">
+    </label>
+
+    <br>
+
+    <label for="password">Password</label>
+    <input type="password" name="user[password]" placeholder="New Password" value="<%= current_user.password_digest %>">
+    </label>
+
+    <br><br>
+    
+    <input type="submit" class="btn btn-outline-success" value="Update Account">
+
+    <br><br>
+
+    <a href="/delete"><input type="button" class="btn btn-outline-danger" value="Delete Account"></a>
+
+    <br><br>
+
+    <a href="/"><input type="button" class="btn btn-outline-warning" value="Back to Welcome Page"></a>
+
+</form>
