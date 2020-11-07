@@ -42,11 +42,14 @@ class UsersController < ApplicationController
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
             redirect to '/characters'
+        elsif params[:username] == "" || params[:password] == ""
+            flash[:message] = "Please enter username and password."
+            redirect to '/login' 
         elsif !@user
-            flash[:message] = "Invalid Username."
+            flash[:message] = "Please enter a valid username."
             redirect to '/login'  
         elsif !@user.authenticate(params[:password])
-            flash[:message] = "Invalid Password."
+            flash[:message] = "Please enter a valid password."
             redirect to '/login'  
         end 
     end 
