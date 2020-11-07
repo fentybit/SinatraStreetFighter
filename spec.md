@@ -1,4 +1,4 @@
-Specs:
+# Specifications:
 
 1.  Use Sinatra to build the app
 2.  Use ActiveRecord for storing information in a database
@@ -13,7 +13,7 @@ Specs:
 11. Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 
-Confirm:
+# Confirm:
 
 1.  You have a large number of small Git commits
 2.  Your commit messages are meaningful

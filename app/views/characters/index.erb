@@ -1,3 +1,5 @@
+
+
 <% if flash.has?(:message) %>
     <div class="alert alert-dismissible alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -6,16 +8,16 @@
     <br><br>
 <% end %>
 
-<% current_user.characters.each do |character| %>
-    <h3><a href="/characters/<%= character.slug %>"><%= character.name %></a></h3>
-    <a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"></a>
-    
-    <br><br>
-
-    <a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a>
-
-    <br><br>
-<% end %>
+<div class="card border-secondary mb-3" style="max-width: 20rem;">
+    <% current_user.characters.each do |character| %>
+        <div class="card-header" style="text-align: center"><a href="/characters/<%= character.slug %>"><%= character.name.upcase %></a></div>
+        
+        <div class="card-body" style="text-align: center">
+            <h4 class="card-title"><a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"  style="max-width: 80%"></a></h4>
+            <p class="card-text"><a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a></p>
+        </div>
+    <% end %>
+</div> 
 
 <br><br>
 
