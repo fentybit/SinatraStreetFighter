@@ -18,6 +18,9 @@ class UsersController < ApplicationController
         if User.find_by(username: @user.username)
             flash[:message] = "The username already exists. Please use a different username."
             redirect to '/signup'
+        elsif User.find_by(email: @user.email)
+            flash[:message] = "The email already exists. Please use a different email."
+            redirect to '/signup'
         elsif !@user.save
             flash[:message] = "Please enter all required fields."
             redirect to '/signup'
