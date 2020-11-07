@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     get '/signup' do 
         if logged_in?
-            redirect to '/characters'
+            redirect to '/index'
         else 
             erb :'users/signup'
         end 
@@ -27,13 +27,13 @@ class UsersController < ApplicationController
         else  
             @user.save
             session[:user_id] = @user.id 
-            redirect to '/characters'
+            redirect to '/index'
         end 
     end 
 
     get '/login' do 
         if logged_in?
-            redirect to '/characters'
+            redirect to '/index'
         else 
             erb :'users/login'
         end 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
-            redirect to '/characters'
+            redirect to '/index'
         elsif params[:username] == "" || params[:password] == ""
             flash[:message] = "Please enter all required fields."
             redirect to '/login' 
@@ -55,6 +55,10 @@ class UsersController < ApplicationController
             flash[:message] = "Please enter a valid password."
             redirect to '/login'  
         end 
+    end 
+
+    get '/index'
+        erb :'/users/index'
     end 
 
     get '/logout' do 
