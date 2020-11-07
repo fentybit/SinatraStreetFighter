@@ -46,7 +46,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id 
             redirect to '/characters'
         elsif params[:username] == "" || params[:password] == ""
-            flash[:message] = "Please enter username and password."
+            flash[:message] = "Please enter all required fields."
             redirect to '/login' 
         elsif !@user
             flash[:message] = "Please enter a valid username."
