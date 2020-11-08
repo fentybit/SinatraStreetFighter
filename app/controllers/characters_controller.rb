@@ -15,6 +15,7 @@ class CharactersController < ApplicationController
             redirect to '/characters' 
         else 
             current_user.characters << @character 
+            binding.pry
         end 
         redirect to "/characters/#{@character.slug}"
     end 
