@@ -1,32 +1,38 @@
-<% if flash.has?(:message) %>
-    <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:message] %>  
-    </div>
-    <br><br>
-<% end %>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/welcome">Welcome</a></li>
+  <li class="breadcrumb-item active">Sign Up</li>
+</ol>
 
-<form method="POST" action="/signup">
-    <div class="form-group">
-     <label for="username">Username</label>
-      <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Username"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
-    </div>
+<div style="margin: 40px;">
 
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;>
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
+  <% if flash.has?(:message) %>
+      <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:message] %>  
+      </div>
+      <br><br>
+  <% end %>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
-    </div>
+  <form method="POST" action="/signup">
+      <div class="form-group" style="width: 400px;">
+      <label for="username">Username</label>
+        <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Username"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
+      </div>
+        
+      <br><br>
       
-    <br><br>
-    
-    <input type="submit" class="btn btn-outline-success" value="Sign Up">
+      <p><input type="submit" class="btn btn-outline-success" value="Sign Up"></p>      
+  </form>
 
-    <a href="/"><input type="button" class="btn btn-outline-warning" value="Back to Welcome Page"></a>
-    
-</form>
+</div>
