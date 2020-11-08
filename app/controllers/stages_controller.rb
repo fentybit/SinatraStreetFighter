@@ -15,7 +15,7 @@ class StagesController < ApplicationController
             @stage = Stage.find_by_id(params[:stage][:id])
             move.stages << @stage
         end 
-
+            
         @character.save
 
         redirect to "/characters/#{@character.slug}"

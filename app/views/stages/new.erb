@@ -1,18 +1,31 @@
-<form method="POST" action="/<%= @character.slug %>/stages/new">
-    <% Stage.all.each do |stage| %>
-        <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
-            <%= stage.name %>
-            <br>    
-            <img src="<%= stage.image %>" style="width:600px;">
-        </button>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item"><a href="/index">Home</a></li>
+  <li class="breadcrumb-item"><a href="/characters">Character Lists</a></li>
+  <li class="breadcrumb-item"><a href="/characters/<%= @character.slug %>"><%= @character.name %></a></li>
+  <li class="breadcrumb-item active">Stages</li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
+
+<div style="margin: 40px; display: grid; grid-template-columns: auto; max-width: auto; text-align: center">
         
-        <br><br>
-    <% end %>
+        <form method="POST" action="/<%= @character.slug %>/stages/new">
+            <% Stage.all.each do |stage| %>
+                <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
+                    <%= stage.name %>
+                    <br>    
+                    <img src="<%= stage.image %>" style="width: 600px; max-width: auto;">
+                </button>
+                
+                <br><br>
+            <% end %>
 
-    <br>
-    
-</form>
+            <br>
+        </form>
 
-<br><br>
+        <br>
 
-<a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to Character"></a>
+        <p><a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to <%= @character.name %>'s Page"></a></p>
+
+</div>

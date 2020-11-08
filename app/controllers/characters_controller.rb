@@ -39,7 +39,9 @@ class CharactersController < ApplicationController
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
                         
-            # binding.pry 
+            binding.pry 
+
+            @stage = Stage.all.find {|stage| stage.moves == @character.moves}
 
             # @character.moves.each do |move|
             #     move.moves_stages.each do |move_stage|
@@ -57,7 +59,12 @@ class CharactersController < ApplicationController
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
 
-            erb :'characters/battle'
+            if @character.moves.empty? || @character.stages.empty?
+                flash[:message] = "Make sure you have both fighting moves and a stage selection."
+                redirect to "/characters/#{@character.slug}"
+            else  
+                erb :'characters/battle'
+            end 
         else
             redirect to '/login'
         end 
