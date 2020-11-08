@@ -1,2 +1,38 @@
-<iframe width="560" height="315" src="<% @character.video %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item"><a href="/index">Home</a></li>
+  <li class="breadcrumb-item"><a href="/characters/<%= @character.slug %>"><%= @character.name %></a></li>
+  <li class="breadcrumb-item"><%= @character.name %></li>
+  <li class="breadcrumb-item active">Battle Scene</li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
+
+<div style="margin: 40px; display: grid; grid-template-columns: auto; max-width: auto; text-align: center">
+    <div class="btn btn-outline-secondary">
+        <iframe width="560" height="315" src="<%= @character.video %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>
+
+    <br><br>
+
+    <div class="card border-secondary mb-3" style="max-width: auto; text-align: center">
+        <br>
+        <h5>Your fighting moves:</h5>
+        <% @character.moves.uniq.each do |move| %>
+            <%= move.name %><br>
+        <% end %>
+        <br>
+    </div>
+
+    <div class="card border-secondary mb-3" style="max-width: auto; text-align: center">
+        <br>
+        <h5>Stages you have performed:</h5>
+        <% @character.stages.uniq.each do |stage| %>
+            <%= stage.name %><br>
+        <% end %>
+        <br>
+    </div>
+</div>
+
+

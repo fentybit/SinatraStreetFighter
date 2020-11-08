@@ -12,13 +12,13 @@ class StagesController < ApplicationController
         @character = Character.find_by_slug(params[:slug])
 
         @character.moves.collect do |move|
-            @stage = Stage.find_by_id(params[:stage][:id])
+            @stage = Stage.find_by(name: params[:stage][:name])
             move.stages << @stage
         end 
             
         @character.save
 
-        redirect to "/characters/#{@character.slug}"
+        redirect to "/characters/#{@character.slug}/#{@stage.id}"
     end 
 
     get '/:slug/stages/edit' do 
@@ -34,12 +34,12 @@ class StagesController < ApplicationController
         @character = Character.find_by_slug(params[:slug])
 
         @character.moves.collect do |move|
-            @stage = Stage.find_by_id(params[:stage][:id])
+            @stage = Stage.find_by(name: params[:stage][:name])
             move.stages << @stage
         end 
 
         @character.save
 
-        redirect to "/characters/#{@character.slug}"
+        redirect to "/characters/#{@character.slug}/#{@stage.id}"
     end 
 end 

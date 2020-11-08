@@ -5,16 +5,16 @@
   <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
 </ol>
 
-<div style="margin: 40px;">
+<div style="margin: 40px; display: grid; grid-template-columns: auto; max-width: auto;">
 
-  <div class="jumbotron" style="margin: 40px;">
+  <div class="jumbotron">
     <h2 class="display-4">Welcome, @<%= current_user.username %>!</h2>
     <p class="lead">Prepare for battle!</p>
 
     <br>
     
-    <div style="text-align: center; max-width: 100%;">
-      <a href="/characters"><img src="/images/index.jpg"></a>
+    <div style="text-align: center;">
+      <a href="/characters"><img src="/images/index.jpg" style="width: auto; max-width: auto;"></a>
     </div>
     
     <hr class="my-4">

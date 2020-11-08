@@ -12,9 +12,8 @@
 
     <form method="POST" action="/<%= @character.slug %>/stages/edit">
         <% Stage.all.each do |stage| %>
-            <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
-                <%= stage.name %>
-                <br>    
+            <button type="radio" class="btn btn-outline-secondary" name="stage[name]" value="<%= stage.name %>"> 
+                <p><%= stage.name %></p>
                 <img src="<%= stage.image %>" style="width:600px; max-width: auto;">
             </button>
             
