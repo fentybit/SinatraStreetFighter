@@ -15,14 +15,22 @@ class CharactersController < ApplicationController
             redirect to '/characters' 
         else 
             current_user.characters << @character 
-            binding.pry
         end 
         redirect to "/characters/#{@character.slug}"
     end 
     
     delete '/characters/:slug' do 
         @character = Character.find_by_slug(params[:slug])
-        @character.destroy
+        
+        revised_chars = []
+
+        current_user.characters.each do |character|
+            if character != @character
+                revised_chars << character 
+            end 
+        end 
+
+        current_user.characters = revised_chars
 
         redirect to '/characters'
     end 
