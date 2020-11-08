@@ -31,7 +31,7 @@ class CharactersController < ApplicationController
             @character = Character.find_by_slug(params[:slug])
                         
             @character.moves.each do |move|
-                move.stage_moves.each do |stage_move|
+                move.moves_stages.each do |stage_move|
                     @stage = Stage.all.find {|stage| stage.id == stage_move.stage_id}
                 end 
             end 
