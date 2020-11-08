@@ -1,44 +1,56 @@
-<h1><%= @character.name %></h1>
-<img src="<%= @character.image %>">
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item"><a href="/index">Home</a></li>
+  <li class="breadcrumb-item"><a href="/characters">Character Lists</a></li>
+  <li class="breadcrumb-item active"><%= @character.name %></li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
 
-<br>
-<h3>Fighting moves</h3>
-<br>
+<div style="margin: 40px;">
 
-<% if @character.moves.empty? %>
-    There are no fighting moves. Would you like to add/edit fighting moves?<br>
-    <a href="/<%= @character.slug %>/moves/new"><input type="submit" class="btn btn-outline-success" value="Add Fighting Moves"></a>
-<% else %>
-    <% @character.moves.each do |move| %>
-        <%= move.name %><br>
+    <h1><%= @character.name %></h1>
+    <img src="<%= @character.image %>">
+
+    <br>
+    <h3>Fighting moves</h3>
+    <br>
+
+    <% if @character.moves.empty? %>
+        There are no fighting moves. Would you like to add/edit fighting moves?<br>
+        <a href="/<%= @character.slug %>/moves/new"><input type="submit" class="btn btn-outline-success" value="Add Fighting Moves"></a>
+    <% else %>
+        <% @character.moves.each do |move| %>
+            <%= move.name %><br>
+        <% end %>
+        <a href="/<%= @character.slug %>/moves/edit"><input type="submit" class="btn btn-outline-success" value="Add/Edit Fighting Moves"></a>
     <% end %>
-    <a href="/<%= @character.slug %>/moves/edit"><input type="submit" class="btn btn-outline-success" value="Add/Edit Fighting Moves"></a>
-<% end %>
 
-<br><br>
+    <br><br>
 
-<h3>Stage</h3>
-<br>
+    <h3>Stage</h3>
+    <br>
 
-<% if @stage.nil? %>
-    Select a Stage to play<br>
-    <a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-success" value="Add Stage Battle"></a>
-<% else %>
-    <%= @stage.name %><br>
-    <a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Edit Stage Battle"></a>
-<% end %>
+    <% if @stage.nil? %>
+        Select a Stage to play<br>
+        <a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-success" value="Add Stage Battle"></a>
+    <% else %>
+        <%= @stage.name %><br>
+        <a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Edit Stage Battle"></a>
+    <% end %>
 
-<br><br><br><br>
+    <br><br><br><br>
 
-<form method="POST" action="/characters/<%= @character.slug %>">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" class="btn btn-outline-danger" value="Delete <%= @character.name %>">
-</form>
+    <form method="POST" action="/characters/<%= @character.slug %>">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-outline-danger" value="Delete <%= @character.name %>">
+    </form>
 
-<br>
+    <br>
 
-<a href="/characters"><input type="submit" class="btn btn-outline-warning" value="Back to Characters List"></a>
+    <a href="/characters"><input type="submit" class="btn btn-outline-warning" value="Back to Characters List"></a>
 
-<br><br>
+    <br><br>
 
-<a href="/characters/<%= @character.slug %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a>
+    <a href="/characters/<%= @character.slug %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a>
+</div>

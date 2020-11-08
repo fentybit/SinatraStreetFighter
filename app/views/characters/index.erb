@@ -16,18 +16,23 @@
         <br><br>
     <% end %>
 
-    <div>
+    <div style="display: grid; grid-template-columns: auto auto auto auto; grid-gap: 10px;">
         <% current_user.characters.each do |character| %>
-            <div class="card-header" style="text-align: center"><a href="/characters/<%= character.slug %>"><%= character.name.upcase %></a></div>
-            
-            <div class="card-body" style="text-align: center">
-                <h4 class="card-title"><a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"  style="max-width: 80%"></a></h4>
-                <p class="card-text"><a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a></p>
-            </div>
-        <% end %>
-    </div> 
+            <div class="card border-secondary mb-3" style="max-width: 20rem; text-align: center;">
+                <div class="card-header">
+                    <a href="/characters/<%= character.slug %>"><%= character.name.upcase %></a>
+                </div>
+                
+                <div class="card-body">
+                    <h4 class="card-title"><a href="/characters/<%= character.slug %>"><img src="<%= character.image %>" style="max-width: 90%"></a></h4>
 
-    <br><br>
+                    <p class="card-text"><a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a></p>
+                </div>
+            </div> 
+        <% end %>
+    </div>
+  
+    <br>
 
     <% if current_user.characters.size == 1 %>
         <p>You have 1 character.</p>
