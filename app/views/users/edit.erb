@@ -1,32 +1,37 @@
-<form method="POST" action="/edit">
-    <input type="hidden" name="_method" value="PATCH">
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+    <li class="breadcrumb-item"><a href="/index">Home</a></li>
+    <li class="breadcrumb-item active">Account Settings</li>
+    <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
 
-    <label for="username">Username</label>
-    <input type="text" name="user[username]" placeholder="<%= current_user.username %>" value="<%= current_user.username %>">
-    </label>
-    
-    <br>
+<div style="margin: 40px;">
 
-    <label for="email">Email address</label>
-    <input type="text" name="user[email]" placeholder="<%= current_user.email %>" value="<%= current_user.email %>">
-    </label>
+    <form method="POST" action="/edit">
+        <input type="hidden" name="_method" value="PATCH">
 
-    <br>
+        <div class="form-group" style="width: 300px;">
+            <label for="username">Username</label>
+            <input type="text" name="user[username]" class="form-control" id="exampleInputPassword1" value="<%= current_user.username %>"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
+        </div>
 
-    <label for="password">Password</label>
-    <input type="password" name="user[password]" placeholder="New Password" value="<%= current_user.password_digest %>">
-    </label>
+        <div class="form-group" style="width: 300px;">
+            <label for="email">Email address</label>
+            <input type="text" name="user[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= current_user.email %>"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;>
+        </div>
 
-    <br><br>
-    
-    <input type="submit" class="btn btn-outline-success" value="Update Account">
+        <div class="form-group" style="width: 300px;">
+            <label for="password">Password</label>
+            <input type="password" name="user[password]" class="form-control" id="exampleInputPassword1" value="<%= current_user.password_digest %>"; background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;>
+        </div>
 
-    <br><br>
+        <br><br>
+        
+        <input type="submit" class="btn btn-outline-success" value="Update Account">
 
-    <a href="/delete"><input type="button" class="btn btn-outline-danger" value="Delete Account"></a>
+        <br><br>
 
-    <br><br>
+        <p><a href="/delete"><input type="button" class="btn btn-outline-danger" value="Delete Account"></a></p>
+    </form>
 
-    <a href="/"><input type="button" class="btn btn-outline-warning" value="Back to Welcome Page"></a>
-
-</form>
+</div>

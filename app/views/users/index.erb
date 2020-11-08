@@ -1,21 +1,32 @@
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="/">Home</a></li>
-  <li class="breadcrumb-item"><a href="#">Library</a></li>
-  <li class="breadcrumb-item active">Data</li>
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item active">Home</li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
 </ol>
 
-<h3>Welcome, <%= current_user.username %>!</h3>
+<div style="margin: 40px;">
 
-<br><br>
+  <div class="jumbotron" style="margin: 40px;">
+    <h2 class="display-4">Welcome, @<%= current_user.username %>!</h2>
+    <p class="lead">Prepare for battle!</p>
 
-<a href="/characters"><img src="/images/index.jpg"></a>
+    <br>
+    
+    <div style="text-align: center; max-width: 100%;">
+      <a href="/characters"><img src="/images/index.jpg"></a>
+    </div>
+    
+    <hr class="my-4">
+    <p>This is a simplistic version of Street Fighter simulation, you can select a character, add select fighting moves and final stage where the epic battle commences.</p>
 
-<br><br>
+    <br>
+    
+    <div style="text-align: center;">
+      <a href="/characters"><input type="button" class="btn btn-warning" value="Let's Play!"></a>
+    </div>
+  </div>
 
-<a href="/characters"><input type="button" class="btn btn-warning" value="Let's Play!"></a>
+  <br><br><br>
 
-<br><br>
-
-<a href="/edit"><input type="button" class="btn btn-outline-success" value="Edit Account"></a>
-
-<br><br>
+</div>

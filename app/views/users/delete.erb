@@ -1,8 +1,19 @@
-When you delete your account, your account and characters profile will be permanently removed. 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+    <li class="breadcrumb-item"><a href="/index">Home</a></li>
+    <li class="breadcrumb-item active">Account Settings</li>
+    <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
 
-<br><br>
+<div style="margin: 40px;">
+    When you delete your account, your account and characters profile will be permanently removed. 
 
-<form method="POST" action="/delete">
-    <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" class="btn btn-outline-danger" value="Delete Account">
-</form>
+    <br><br>
+
+    <p><a href="/edit"><input type="submit" class="btn btn-outline-success" value="Back to Account Settings"></a></p>  
+ 
+    <form method="POST" action="/delete">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <p><input type="submit" class="btn btn-outline-danger" value="Delete Account"></p>
+    </form>
+</div>
