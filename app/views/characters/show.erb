@@ -67,7 +67,7 @@
                         
                         <p><a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-success" value="Add Stage Battle"></a></p>
                     <% else %>
-                        <%= @stage.name %><br>
+                        <p><li><%= @stage.name %><br></li></p>
 
                         <p><a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Edit Stage Battle"></a></p>
                     <% end %>

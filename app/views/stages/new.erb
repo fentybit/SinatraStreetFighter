@@ -10,22 +10,22 @@
 
 <div style="margin: 40px; display: grid; grid-template-columns: auto; max-width: auto; text-align: center">
         
-        <form method="POST" action="/<%= @character.slug %>/stages/new">
-            <% Stage.all.each do |stage| %>
-                <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
-                    <%= stage.name %>
-                    <br>    
-                    <img src="<%= stage.image %>" style="width: 600px; max-width: auto;">
-                </button>
-                
-                <br><br>
-            <% end %>
-
-            <br>
-        </form>
+    <form method="POST" action="/<%= @character.slug %>/stages/new">
+        <% Stage.all.each do |stage| %>
+            <button type="radio" class="btn btn-outline-secondary" name="stage[id]" value="<%= stage.id %>"> 
+                <%= stage.name %>
+                <br>    
+                <img src="<%= stage.image %>" style="width: 600px; max-width: auto;">
+            </button>
+            
+            <br><br>
+        <% end %>
 
         <br>
+    </form>
 
-        <p><a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to <%= @character.name %>'s Page"></a></p>
+    <br>
+
+    <p><a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to <%= @character.name %>'s Page"></a></p>
 
 </div>

@@ -38,11 +38,12 @@ class CharactersController < ApplicationController
     get '/characters/:slug' do 
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
-                        
-            binding.pry 
+                  
+            if !@character.moves.empty?
+                @stage = Stage.all.find {|stage| stage.moves == @character.moves}
+            end 
 
-            @stage = Stage.all.find {|stage| stage.moves == @character.moves}
-
+            #! methods if using a join table
             # @character.moves.each do |move|
             #     move.moves_stages.each do |move_stage|
             #         @stage = Stage.all.find {|stage| stage.id == move_stage.stage_id}
