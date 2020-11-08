@@ -39,11 +39,13 @@ class CharactersController < ApplicationController
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
                         
-            @character.moves.each do |move|
-                move.moves_stages.each do |stage_move|
-                    @stage = Stage.all.find {|stage| stage.id == stage_move.stage_id}
-                end 
-            end 
+            # binding.pry 
+
+            # @character.moves.each do |move|
+            #     move.moves_stages.each do |move_stage|
+            #         @stage = Stage.all.find {|stage| stage.id == move_stage.stage_id}
+            #     end 
+            # end 
 
             erb :'characters/show'
         else  

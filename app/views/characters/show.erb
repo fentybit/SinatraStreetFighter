@@ -8,8 +8,8 @@
 </ol>
 
 <div style="margin: 40px;">
-    <div style="display: grid; grid-template-columns: auto auto; grid-gap: 10px;">
-        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+    <div style="display: grid; grid-template-columns: auto auto; grid-gap: 30px;">
+        <div class="card border-secondary mb-3" style="max-width: 20rem; text-align: center">
             <div class="card-header">
                 <h3><%= @character.name %></h3>
             </div>
@@ -17,23 +17,46 @@
             <div class="card-body">
                 <h4 class="card-title" style="text-align: center;"><img src="<%= @character.image %>" style="max-width: 90%;"></h4>
 
+                <br><br>
+
+                <form method="POST" action="/characters/<%= @character.slug %>">
+                    <input type="hidden" id="hidden" name="_method" value="DELETE">
+                    <p><input type="submit" class="btn btn-outline-danger" value="Remove <%= @character.name %>"></p>
+                </form>
+
+                <br>
+
+                <a href="/characters/<%= @character.slug %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="max-width: auto;">
+            <div class="card-body">
+                <blockquote class="blockquote">
+                    <p class="mb-0"><%= @character.quote %></p>
+                    <footer class="blockquote-footer"><cite title="Source Title"><%= @character.name %></cite></footer>
+                </blockquote>
+
+                <h5>Biography</h5>
+                <p><%= @character.bio %></p>
+
                 <p class="card-text">
-                    <h4>Fighting moves</h4>
+                    <h5>Fighting moves</h5>
                     <% if @character.moves.empty? %>
                         <p>There are no fighting moves. Would you like to add/edit fighting moves?</p>
                         
                         <p><a href="/<%= @character.slug %>/moves/new"><input type="submit" class="btn btn-outline-success" value="Add Fighting Moves"></a></p>
                     <% else %>
-                        <% @character.moves.each do |move| %>
-                            <%= move.name %><br>
-                        <% end %>
+                        <p><% @character.moves.each do |move| %>
+                            <li><%= move.name %><br></li>
+                        <% end %></p>
                         
                         <p><a href="/<%= @character.slug %>/moves/edit"><input type="submit" class="btn btn-outline-success" value="Add/Edit Fighting Moves"></a></p>
                     <% end %>
 
-                    <h4>Stage</h4>
+                    <h5>Stage</h5>
                     <% if @stage.nil? %>
-                        <p>Select a Stage to play</p>
+                        <p>Select a Stage to play.</p>
                         
                         <p><a href="/<%= @character.slug %>/stages/new"><input type="submit" class="btn btn-outline-success" value="Add Stage Battle"></a></p>
                     <% else %>
@@ -42,15 +65,6 @@
                         <p><a href="/<%= @character.slug %>/stages/edit"><input type="submit" class="btn btn-outline-success" value="Edit Stage Battle"></a></p>
                     <% end %>
                 </p>
-
-                <form method="POST" action="/characters/<%= @character.slug %>">
-                    <input type="hidden" id="hidden" name="_method" value="DELETE">
-                    <p><input type="submit" class="btn btn-outline-danger" value="Remove <%= @character.name %>"></p>
-                </form>
-
-                <br><br>
-
-                <a href="/characters/<%= @character.slug %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a>
             </div>
         </div>
     </div>

@@ -1,20 +1,36 @@
-<form method="POST" action="/<%= @character.slug %>/moves/edit">
-    <input type="hidden" name="_method" value="PATCH">
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item"><a href="/index">Home</a></li>
+  <li class="breadcrumb-item"><a href="/characters">Character Lists</a></li>
+  <li class="breadcrumb-item"><a href="/characters/<%= @character.slug %>"><%= @character.name %></a></li>
+  <li class="breadcrumb-item active">Fighting Moves</li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
 
-    <% Move.all.each do |move| %>
-        <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>" <%='checked' if @character.moves.include?(move) %>> <%= move.name %><br>
-    <% end %>
+<div style="margin: 40px;">
+    <div style="width: 300px;">
+        <form method="POST" action="/<%= @character.slug %>/moves/edit">
+            <input type="hidden" name="_method" value="PATCH">
 
-    <br>
+            <% Move.all.each do |move| %>
+                <input type="checkbox" name="character[move_ids][]" value="<%= move.id %>" <%='checked' if @character.moves.include?(move) %>> <%= move.name %><br>
+            <% end %>
+
+            <br>
+            
+            <h6>New fighting move</h6>
+
+            <input type="text" class="form-control" placeholder="New fighting move" name="move[name]">
+            
+            <br>
+
+            <input type="submit" class="btn btn-outline-success" value="Update Fighting Moves">
+        </form>
+    </div>
     
-    New fighting move
-    <input type="text" class="form-control" placeholder="New fighting move" name="move[name]">
-    
     <br>
 
-    <input type="submit" class="btn btn-outline-success" value="Update Fighting Moves">
-</form>
+    <p><a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to Character Lists"></a></p>
 
-<br><br>
-
-<a href="/characters/<%= @character.slug %>"><input type="submit" class="btn btn-outline-warning" value="Back to Character"></a>
+</div>

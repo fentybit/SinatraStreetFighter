@@ -33,7 +33,12 @@ class MovesController < ApplicationController
 
     patch '/:slug/moves/edit' do 
         @character = Character.find_by_slug(params[:slug])
-        @character.update(params[:character])
+        
+        if params[:character].nil?
+            @character.moves = []
+        else  
+            @character.update(params[:character])
+        end 
 
         if !params[:move][:name].empty?
             @character.moves << Move.find_or_create_by(name: params[:move][:name])
