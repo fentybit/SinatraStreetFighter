@@ -1,54 +1,60 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/">Welcome</a></li>
+  <li class="breadcrumb-item"><a href="/index">Home</a></li>
+  <li class="breadcrumb-item active">Character Lists</li>
+  <li class="breadcrumb-item"><a href="/edit">Account Settings</a></li>
+  <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+</ol>
 
+<div style="margin: 40px;">
 
-<% if flash.has?(:message) %>
-    <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:message] %>  
-    </div>
-    <br><br>
-<% end %>
-
-<div class="card border-secondary mb-3" style="max-width: 20rem;">
-    <% current_user.characters.each do |character| %>
-        <div class="card-header" style="text-align: center"><a href="/characters/<%= character.slug %>"><%= character.name.upcase %></a></div>
-        
-        <div class="card-body" style="text-align: center">
-            <h4 class="card-title"><a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"  style="max-width: 80%"></a></h4>
-            <p class="card-text"><a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a></p>
+    <% if flash.has?(:message) %>
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:message] %>  
         </div>
+        <br><br>
     <% end %>
-</div> 
 
-<br><br>
-
-<% if current_user.characters.size == 1 %>
-    <h4>You have 1 character.</h4>
-    <h4>Would you like to add another character?</h4>
-<% elsif current_user.characters.size > 1 %>
-    <h4>You have <%= current_user.characters.size %> characters.</h4>
-    <h4>Would you like to add another character?</h4>
-<% else %>
-    <h4>Let's add a new character.</h4>
-<% end %>
-
-
-<form method="POST" action="/characters">
-    <div class="form-group" style="width:200px;">
-        <select class="custom-select" name="character_id" id="character_id">
-            <option selected="">Select one character</option>
+    <div>
+        <% current_user.characters.each do |character| %>
+            <div class="card-header" style="text-align: center"><a href="/characters/<%= character.slug %>"><%= character.name.upcase %></a></div>
             
-            <% Character.all.each do |character| %>
-            <option value="<%= character.id %>"><%= character.name%></option>
-            <% end %>
+            <div class="card-body" style="text-align: center">
+                <h4 class="card-title"><a href="/characters/<%= character.slug %>"><img src="<%= character.image %>"  style="max-width: 80%"></a></h4>
+                <p class="card-text"><a href="/characters/<%= character.slug %>"><input type="submit" class="btn btn-outline-success" value="Update Character"></a></p>
+            </div>
+        <% end %>
+    </div> 
 
-        </select>
-    </div>
+    <br><br>
 
-    <br>
+    <% if current_user.characters.size == 1 %>
+        <p>You have 1 character.</p>
+        <p>Would you like to add another character?</p>
+    <% elsif current_user.characters.size > 1 %>
+        <p>You have <%= current_user.characters.size %> characters.</p>
+        <p>Would you like to add another character?</p>
+    <% else %>
+        <p>Let's add a new character.</p>
+    <% end %>
 
-    <input type="submit" class="btn btn-outline-success">
-</form>
 
-<br><br>
+    <form method="POST" action="/characters">
+        <div class="form-group" style="width:200px;">
+            <select class="custom-select" name="character_id" id="character_id">
+                <option selected="">Select one character</option>
+                
+                <% Character.all.each do |character| %>
+                <option value="<%= character.id %>"><%= character.name%></option>
+                <% end %>
 
-<p><a href="/logout"><input type="submit" class="btn btn-outline-danger" value="Log Out"></a></p>
+            </select>
+        </div>
+
+        <br>
+
+        <input type="submit" class="btn btn-outline-success">
+    </form>
+
+</div>
