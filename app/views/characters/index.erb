@@ -46,11 +46,11 @@
 
     <form method="POST" action="/characters">
         <div class="form-group" style="width:200px;">
-            <select class="custom-select" name="character_id" id="character_id">
+            <select class="custom-select" name="character_name" id="character_name">
                 <option selected="">Select one character</option>
                 
-                <% Character.all.each do |character| %>
-                <option value="<%= character.id %>"><%= character.name%></option>
+                <% Character.all[0..9].each do |character| %>
+                    <option value="<%= character.name %>"><%= character.name %></option>
                 <% end %>
 
             </select>

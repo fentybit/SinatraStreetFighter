@@ -6,6 +6,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.text :bio
       t.string :image 
       t.string :video
+      t.integer :user_id
     end 
   end
 end

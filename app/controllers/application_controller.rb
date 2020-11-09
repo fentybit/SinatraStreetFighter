@@ -24,6 +24,10 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id]) if session[:user_id]
     end 
 
+    def finding_character
+
+    end 
+
     def require_login
       unless logged_in?
         erb :'/users/login'

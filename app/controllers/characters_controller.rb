@@ -8,36 +8,30 @@ class CharactersController < ApplicationController
     end 
     
     post '/characters' do 
-        @character = Character.find_by_id(params[:character_id])
-        if current_user.characters.include?(@character)
+        selected_char = Character.find_by(name: params[:character_name])
+
+        if !current_user.characters.find_by(name: params[:character_name]).nil?
             flash[:message] = "You already have this character."
             
             redirect to '/characters' 
         else 
+            @character = selected_char.dup
             current_user.characters << @character 
         end 
         redirect to "/characters"
     end 
     
     delete '/characters/:slug' do 
-        @character = Character.find_by_slug(params[:slug])
-        
-        revised_chars = []
-
-        current_user.characters.each do |character|
-            if character != @character
-                revised_chars << character 
-            end 
-        end 
-
-        current_user.characters = revised_chars
+        @character = current_user.characters.find_by_slug(params[:slug])
+        @character.destroy
 
         redirect to '/characters'
     end 
 
     get '/characters/:slug' do 
         if logged_in?
-            @character = Character.find_by_slug(params[:slug])
+            @character = current_user.characters.find_by_slug(params[:slug])
+
             # if !@character.moves.empty?
             #     @stage = Stage.all.find {|stage| stage.moves == @character.moves}
             # end 
@@ -57,7 +51,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug/:id/battle' do 
         if logged_in?
-            @character = Character.find_by_slug(params[:slug])
+            @character = current_user.characters.find_by_slug(params[:slug])
             @stage = Stage.find_by_id(params[:id])
 
             if @character.moves.empty? || @stage.nil?
@@ -73,7 +67,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug/:id' do 
         if logged_in?
-            @character = Character.find_by_slug(params[:slug])
+            @character = current_user.characters.find_by_slug(params[:slug])
             @stage = Stage.find_by_id(params[:id])
 
             erb :'characters/show'
