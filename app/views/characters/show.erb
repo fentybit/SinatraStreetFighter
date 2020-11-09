@@ -47,10 +47,13 @@
                 <h5>Biography</h5>
                 <p><%= @character.bio %></p>
 
+                <br>
+
                 <p class="card-text">
                     <h5>Fighting moves</h5>
                     <% if @character.moves.empty? %>
-                        <p>There are no fighting moves. Would you like to add/edit fighting moves?</p>
+                        <p>There are no fighting moves.<br>
+                        Would you like to add/edit fighting moves?</p>
                         
                         <p><a href="/<%= @character.slug %>/moves/new"><input type="submit" class="btn btn-outline-success" value="Add Fighting Moves"></a></p>
                     <% else %>
@@ -60,6 +63,8 @@
                         
                         <p><a href="/<%= @character.slug %>/moves/edit"><input type="submit" class="btn btn-outline-success" value="Add/Edit Fighting Moves"></a></p>
                     <% end %>
+
+                    <br>
 
                     <h5>Stage</h5>
                     <% if @stage.nil? %>
@@ -75,9 +80,11 @@
 
                 <br><br>
 
-                <div style="bottom: 0px; width: 100%">
-                    <p style="text-align: center;"><a href="/characters/<%= @character.slug %>/<%= @stage.id %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a></p>
-                </div>
+                <% if !@stage.nil? %>    
+                    <div style="bottom: 0px; width: 100%">
+                        <p style="text-align: center;"><a href="/characters/<%= @character.slug %>/<%= @stage.id %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a></p>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

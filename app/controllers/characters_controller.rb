@@ -16,7 +16,7 @@ class CharactersController < ApplicationController
         else 
             current_user.characters << @character 
         end 
-        redirect to "/characters/#{@character.slug}"
+        redirect to "/characters"
     end 
     
     delete '/characters/:slug' do 
@@ -38,12 +38,9 @@ class CharactersController < ApplicationController
     get '/characters/:slug' do 
         if logged_in?
             @character = Character.find_by_slug(params[:slug])
-                  
             # if !@character.moves.empty?
             #     @stage = Stage.all.find {|stage| stage.moves == @character.moves}
             # end 
-
-            # binding.pry
 
             #! methods if using a join table
             # @character.moves.each do |move|
