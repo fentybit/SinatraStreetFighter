@@ -24,8 +24,8 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id]) if session[:user_id]
     end 
 
-    def finding_character
-
+    def finding_character_slug
+      @character = current_user.characters.find_by_slug(params[:slug])
     end 
 
     def require_login

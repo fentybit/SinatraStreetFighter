@@ -1,7 +1,7 @@
 class StagesController < ApplicationController 
     get '/:slug/stages/new' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             erb :'stages/new'
         else  
             redirect to '/login'
@@ -9,21 +9,25 @@ class StagesController < ApplicationController
     end 
 
     post '/:slug/stages/new' do 
-        @character = current_user.characters.find_by_slug(params[:slug])
+        finding_character_slug
 
-        @character.moves.collect do |move|
-            @stage = Stage.find_by(name: params[:stage][:name])
-            move.stages << @stage
-        end 
-            
-        @character.save
-
-        redirect to "/characters/#{@character.slug}/#{@stage.id}"
+        if !@character.moves.empty?
+            @character.moves.collect do |move|
+                @stage = Stage.find_by(name: params[:stage][:name])
+                move.stages << @stage
+            end 
+            @character.save
+    
+            redirect to "/characters/#{@character.slug}/#{@stage.id}"
+        else  
+            flash[:message] = "Please select your fighting moves beforehand."
+            redirect to "/characters/#{@character.slug}"
+        end    
     end 
 
     get '/:slug/stages/edit' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             erb :'stages/edit'
         else  
             redirect to '/login'
@@ -31,7 +35,7 @@ class StagesController < ApplicationController
     end 
 
     post '/:slug/stages/edit' do 
-        @character = current_user.characters.find_by_slug(params[:slug])
+        finding_character_slug
 
         @character.moves.collect do |move|
             @stage = Stage.find_by(name: params[:stage][:name])

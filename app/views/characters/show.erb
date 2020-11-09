@@ -32,13 +32,13 @@
                 </blockquote>
 
                 <br><br>
+            </div>
 
-                <div style="bottom: 0px; width: 100%">
-                    <form method="POST" action="/characters/<%= @character.slug %>">
-                        <input type="hidden" id="hidden" name="_method" value="DELETE">
-                        <p><input type="submit" class="btn btn-outline-danger" value="Remove Character"></p>
-                    </form>
-                </div>
+            <div style="margin-bottom: 10px; width: 100%;">
+                <form method="POST" action="/characters/<%= @character.slug %>">
+                    <input type="hidden" id="hidden" name="_method" value="DELETE">
+                    <p><input type="submit" class="btn btn-outline-danger" value="Remove Character"></p>
+                </form>
             </div>
         </div>
 
@@ -80,12 +80,12 @@
 
                 <br><br>
 
-                <% if !@stage.nil? %>    
-                    <div style="bottom: 0px; width: 100%">
-                        <p style="text-align: center;"><a href="/characters/<%= @character.slug %>/<%= @stage.id %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a></p>
-                    </div>
-                <% end %>
             </div>
+            <% if !@stage.nil? %>    
+                <div style="margin-bottom: 10px; width: 100%;">
+                    <p style="text-align: center;"><a href="/characters/<%= @character.slug %>/<%= @stage.id %>/battle"><input type="submit" class="btn btn-warning" value="Are you ready for your battle?"></a></p>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

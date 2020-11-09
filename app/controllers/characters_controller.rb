@@ -22,7 +22,7 @@ class CharactersController < ApplicationController
     end 
     
     delete '/characters/:slug' do 
-        @character = current_user.characters.find_by_slug(params[:slug])
+        finding_character_slug
         @character.destroy
 
         redirect to '/characters'
@@ -30,7 +30,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
 
             # if !@character.moves.empty?
             #     @stage = Stage.all.find {|stage| stage.moves == @character.moves}
@@ -51,7 +51,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug/:id/battle' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             @stage = Stage.find_by_id(params[:id])
 
             if @character.moves.empty? || @stage.nil?
@@ -67,7 +67,7 @@ class CharactersController < ApplicationController
 
     get '/characters/:slug/:id' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             @stage = Stage.find_by_id(params[:id])
 
             erb :'characters/show'

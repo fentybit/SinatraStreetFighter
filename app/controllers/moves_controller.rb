@@ -2,7 +2,7 @@ class MovesController < ApplicationController
 
     get '/:slug/moves/new' do
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             erb :'moves/new'
         else  
             redirect to '/login'
@@ -10,7 +10,7 @@ class MovesController < ApplicationController
     end 
 
     post '/:slug/moves/new' do
-        @character = current_user.characters.find_by_slug(params[:slug])
+        finding_character_slug
         @character.update(params[:character])
 
         if !params[:move][:name].empty?
@@ -24,7 +24,7 @@ class MovesController < ApplicationController
 
     get '/:slug/moves/edit' do 
         if logged_in?
-            @character = current_user.characters.find_by_slug(params[:slug])
+            finding_character_slug
             erb :'moves/edit'
         else  
             redirect to '/login'
@@ -32,7 +32,7 @@ class MovesController < ApplicationController
     end 
 
     patch '/:slug/moves/edit' do 
-        @character = current_user.characters.find_by_slug(params[:slug])
+        finding_character_slug
         
         if params[:character].nil?
             @character.moves = []
