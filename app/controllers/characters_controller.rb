@@ -18,6 +18,7 @@ class CharactersController < ApplicationController
             @character = selected_char.dup
             current_user.characters << @character 
         end 
+
         redirect to "/characters"
     end 
     
@@ -31,10 +32,6 @@ class CharactersController < ApplicationController
     get '/characters/:slug' do 
         if logged_in?
             finding_character_slug
-
-            # if !@character.moves.empty?
-            #     @stage = Stage.all.find {|stage| stage.moves == @character.moves}
-            # end 
 
             #! methods if using a join table
             # @character.moves.each do |move|
