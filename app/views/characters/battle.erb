@@ -27,10 +27,8 @@
 
     <div class="card border-secondary mb-3" style="max-width: auto; text-align: center">
         <br>
-        <h5>Stages you have performed:</h5>
-        <% @character.stages.uniq.each do |stage| %>
-            <%= stage.name %><br>
-        <% end %>
+        <h5>Performance Stage:</h5>
+        <%= @stage.name %><br>
         <br>
     </div>
 
