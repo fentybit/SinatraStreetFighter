@@ -50,8 +50,12 @@
                 <option selected="">Select one character</option>
                 
                 <% Character.all[0..9].each do |character| %>
-                    <option value="<%= character.name %>"><%= character.name %></option>
+                    <% if !current_user.characters.find_by(name: character.name) %>
+                        <option value="<%= character.name %>"><%= character.name %></option>
+                    <% end %>
                 <% end %>
+
+                #! Show all characters except the one already pre-selected
 
             </select>
         </div>
