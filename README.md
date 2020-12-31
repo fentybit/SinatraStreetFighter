@@ -68,7 +68,7 @@ Each user has the CRUD capabilities that is unique to each respective user.
 ## Installation
 
 ```ruby
-$ git clone :space_invader:
+$ git clone 👾
 $ bundle install
 $ ./bin/space_exploration
 ```
