@@ -7,7 +7,8 @@
 <br>
 
 <strong>Domain Modeling :: Street Fighter</strong><br>
-Welcome to your Space Exploration, where you can select your space crew, pick your favorite spacecraft (powered by SpaceX), and infinite amount of planets in Milky Way Galaxy to travel to!<br>
+Welcome to my simplistic version of Street Fighter simulation.<br> 
+You can select a character, add fighting moves and a final stage where your epic battle commences!<br>
 
 <p><a href="https://youtu.be/pvurDvp8TZY">YouTube Demo</a></p>
 <p><a href="https://dev.to/codinghall/sinatra-x-street-fighter-1hgl">DEV Blog</a></p>
