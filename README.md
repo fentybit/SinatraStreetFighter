@@ -27,7 +27,7 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 <br>
 
 **Models** 
-<ul>User, Character, Move, Stage</ul>
+<p>User, Character, Move, Stage</p>
 
 > user has_many :characters
 
@@ -42,25 +42,25 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 > move `has_and_belongs_to_many` :stages<br>
 
 **Views** 
-<ul>erb:layout, welcome<br>
-users erb: delete, edit, index, login, logout, signup<br>
-characters erb: battle, index, show<br>
-moves erb: edit, new<br>
-stages erb: edit, new</ul>
+<p>Welcome Page<br>
+Users :: delete, edit, index, login, logout, signup<br>
+Characters :: battle, index, show<br>
+Moves :: edit, new<br>
+Stages :: edit, new</p>
 
 **Controller** 
-<ul>application_controller<br>
-characters_controller<br>
-moves_controller<br>
-stages_controller<br>
-users_controller</ul>
+<ul>ApplicationController<br>
+CharactersController<br>
+MovesController<br>
+StagesController<br>
+UsersController</ul>
 
 **User Account and Validation**
-<ul>Sign Up<br>
+<p>Sign Up<br>
 Edit<br>
 Sign Out<br>
-`validate_uniqueness_of`<br>
-validates_presence_of</ul>
+*validate_uniqueness_of*<br>
+*validates_presence_of*</p>
 
 **CRUD**
 Each user has the CRUD capabilities that is unique to each respective user.
@@ -70,12 +70,15 @@ Each user has the CRUD capabilities that is unique to each respective user.
 ```ruby
 $ git clone 👾
 $ bundle install
-$ rails db:migrate 
+$ rake db:migrate 
 $ shotgun
 ```
-Open Chrome browser, and redirect to 'http://localhost:3000' to start the app.
+Open Chrome browser, and redirect to 'http://localhost:9292' to start the app.
 
 ## Stack
 - [x] Active Record
-- [x] SQLite3
+- [x] Bcrypt
+- [x] Sinatra
+- [x] SQLite
 - [x] HTML/CSS
+- [x] Rack-flash3
