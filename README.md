@@ -1,9 +1,22 @@
-# USAGE 
-Simply clone, run rake db:migrate, run shotgun.
-Everything should be set up. :)
+# Sinatra::Street Fighter
+
+<div align="center">
+  <img src="./space.png">
+</div>
+
+<br>
+
+<strong>Domain Modeling :: Space Travel</strong><br>
+Welcome to your Space Exploration, where you can select your space crew, pick your favorite spacecraft (powered by SpaceX), and infinite amount of planets in Milky Way Galaxy to travel to!<br>
+
+<p><a href="https://youtu.be/amt7y-bIKkk">YouTube Demo</a></p>
+<p><a href="https://dev.to/codinghall/api-cli-space-exploration-108f">DEV Blog</a></p>
 
 
-# PROJECT REQUIREMENTS
+## About
+
+## Features
+
 1.  Build an MVC Sinatra application =>
 	```
     Models > User, Character, Move, Stage
@@ -44,6 +57,13 @@ Everything should be set up. :)
 10. BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!) =>
 	```
     I utilized flash[:message] in lieu of @error to display error messages.
+    
+## Installation
+
+Simply clone, run rake db:migrate, run shotgun.
+Everything should be set up. :)
+
+
 # BOOTSWATCH .css 
 Bootswatch is a collection of open source themes for [Bootstrap](https://getbootstrap.com/). Check it out at [bootswatch.com](https://bootswatch.com).
 
