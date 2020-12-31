@@ -70,18 +70,12 @@ Each user has the CRUD capabilities that is unique to each respective user.
 ```ruby
 $ git clone 👾
 $ bundle install
-$ ./bin/space_exploration
+$ rails db:migrate 
+$ shotgun
 ```
-1. Git Clone 
-2. Bundle INstallrun rake db:migrate, run shotgun.
-Everything should be set up. :)
+Open Chrome browser, and redirect to 'http://localhost:3000' to start the app.
 
-
-# BOOTSWATCH .css 
-Bootswatch is a collection of open source themes for [Bootstrap](https://getbootstrap.com/). Check it out at [bootswatch.com](https://bootswatch.com).
-
-Copyright and License 
-
-Copyright 2014-2020 Thomas Park
-
-Code released under the MIT License
+## Stack
+- [x] Active Record
+- [x] SQLite3
+- [x] HTML/CSS
