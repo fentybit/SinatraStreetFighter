@@ -29,6 +29,18 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 **Models** 
 <ul>User, Character, Move, Stage</ul>
 
+> user has_many :characters
+
+> character `belongs_to` :user<br>
+> character `has_many` :moves<br>
+> character `has_many` :stages, `through:` :moves
+
+> stage `has_and_belongs_to_many` :moves<br>
+> stage `has_many` :characters, `through:` :moves<br>
+
+> move `belongs_to` :character<br>
+> move `has_and_belongs_to_many` :stages<br>
+
 **Views** 
 <ul>erb:layout, welcome<br>
 users erb: delete, edit, index, login, logout, signup<br>
@@ -43,37 +55,25 @@ moves_controller<br>
 stages_controller<br>
 users_controller</ul>
 
-2.  Use ActiveRecord with Sinatra =>
-	```
-    Applied for migration and model classes.
-3.  Use multiple models =>
-	```
-    There are a total of 4 models. 
-4.  Use at least one has_many relationship on a User model and one belongs_to relationship on another model =>
-	```
-    ORM relationships include has_many, belongs_to, has_and_belongs_to.
-5.  Must have user accounts - users must be able to sign up, sign in, and sign out =>
-	```
-    Users are able to sign up, sign in/log in, edit account, delete account and sign out/log out.
-6.  Validate uniqueness of user login attribute (username or email) =>
-	```
-    validates_uniqueness_of was implemented on both username and email.
-7.  Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user =>
-	```
-    Each user has the CRUD capabilities that is unique to each respective user.
-8.  Ensure that users can edit and delete only their own resources - not resources created by other users =>
-	```
-    Each user has the CRUD capabilities that is unique to each respective user.
-9.  Validate user input so bad data cannot be persisted to the database =>
-	```
-    validates_presence_of was implemented on username, email and password alongside with flash[:message] to guide the user as validating input.
-10. BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!) =>
-	```
-    I utilized flash[:message] in lieu of @error to display error messages.
+**User Account and Validation**
+<ul>Sign Up<br>
+Edit<br>
+Sign Out<br>
+`validate_uniqueness_of`<br>
+validates_presence_of</ul>
+
+**CRUD**
+Each user has the CRUD capabilities that is unique to each respective user.
     
 ## Installation
 
-Simply clone, run rake db:migrate, run shotgun.
+```ruby
+$ git clone :space_invader:
+$ bundle install
+$ ./bin/space_exploration
+```
+1. Git Clone 
+2. Bundle INstallrun rake db:migrate, run shotgun.
 Everything should be set up. :)
 
 
