@@ -6,7 +6,7 @@
 
 <br>
 
-<strong>Domain Modeling :: Space Travel</strong><br>
+<strong>Domain Modeling :: Street Fighter</strong><br>
 Welcome to your Space Exploration, where you can select your space crew, pick your favorite spacecraft (powered by SpaceX), and infinite amount of planets in Milky Way Galaxy to travel to!<br>
 
 <p><a href="https://youtu.be/pvurDvp8TZY">YouTube Demo</a></p>
@@ -14,6 +14,9 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 
 
 ## About
+
+<p>In my Street Fighter domain modeling universe, the Minimum Viable Product (MVP) I was aiming for this capstone project would be to allow a user to select a character and perform character's fighting moves on multiple stage platforms.</p>
+<p>The extended function I am aiming for would be to save a user's session when signing up or logging in, and user's ability to record multiple selections of characters with various fighting moves and stage platforms.</p>
 
 ## Features
 
@@ -23,19 +26,23 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 
 <br>
 
-1.  Build an MVC Sinatra application =>
-	```
-    Models > User, Character, Move, Stage
-    Views > erb:layout, welcome
-            users erb: delete, edit, index, login, logout, signup
-            characters erb: battle, index, show
-            moves erb: edit, new 
-            stages erb: edit, new
-    Controller > application_controller
-                 characters_controller 
-                 moves_controller
-                 stages_controller
-                 users_controller  
+**Models** 
+<ul>User, Character, Move, Stage</ul>
+
+**Views** 
+<ul>erb:layout, welcome<br>
+users erb: delete, edit, index, login, logout, signup<br>
+characters erb: battle, index, show<br>
+moves erb: edit, new<br>
+stages erb: edit, new</ul>
+
+**Controller** 
+<ul>application_controller<br>
+characters_controller<br>
+moves_controller<br>
+stages_controller<br>
+users_controller</ul>
+
 2.  Use ActiveRecord with Sinatra =>
 	```
     Applied for migration and model classes.
