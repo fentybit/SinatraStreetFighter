@@ -1,7 +1,3 @@
-[![Stargazers repo roster for @fentyhall/mod2_sinatra_streetfighter](https://reporoster.com/stars/fentyhall/mod2_sinatra_streetfighter)](https://github.com/fentyhall/mod2_sinatra_streetfighter/stargazers)
-
-[![Forkers repo roster for @fentyhall/mod2_sinatra_streetfighter](https://reporoster.com/forks/fentyhall/mod2_sinatra_streetfighter)](https://github.com/fentyhall/mod2_sinatra_streetfighter/network/members)
-
 # USAGE 
 Simply clone, run rake db:migrate, run shotgun.
 Everything should be set up. :)
