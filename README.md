@@ -27,8 +27,8 @@ You can select a character, add fighting moves and a final stage where your epic
 
 <br>
 
-**Models** 
-<p>User, Character, Move, Stage</p>
+**Models** <br>
+User, Character, Move, Stage<br>
 
 > user has_many :characters
 
@@ -42,29 +42,29 @@ You can select a character, add fighting moves and a final stage where your epic
 > move `belongs_to` :character<br>
 > move `has_and_belongs_to_many` :stages<br>
 
-**Views** 
-<p>Welcome Page<br>
+**Views** <br>
+Welcome Page<br>
 Users :: delete, edit, index, login, logout, signup<br>
 Characters :: battle, index, show<br>
 Moves :: edit, new<br>
-Stages :: edit, new</p>
+Stages :: edit, new<br>
 
-**Controller** 
-<p>ApplicationController<br>
+**Controller** <br>
+ApplicationController<br>
 CharactersController<br>
 MovesController<br>
 StagesController<br>
-UsersController</p>
+UsersController<br>
 
-**User Account and Validation**
-<p>Sign Up<br>
+**User Account and Validation** <br>
+Sign Up<br>
 Edit<br>
 Sign Out<br>
 <i>validate_uniqueness_of</i><br>
-  <i>validates_presence_of</i></p>
+<i>validates_presence_of</i><br>
 
-**CRUD**
-Each user has the CRUD (Create, Read, Update and Delete) capabilities that is unique to each respective user.
+**CRUD** <br>
+Each user has the CRUD (Create, Read, Update and Delete) capabilities that is unique to each respective user.<br>
     
 ## Installation
 
