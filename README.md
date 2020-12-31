@@ -84,3 +84,10 @@ Open Chrome browser, and redirect to 'http://localhost:9292' to start the app.
 - [x] HTML/CSS
 - [x] Rack-flash3
 - [x] Bootswatch
+
+## Resources
+
+- [x] <a href="https://github.com/thebrianemory/corneal">Ruby Gem Corneal</a>
+- [x] <a href="https://srk.shib.live/w/Street_Fighter_V">Street Fighter V Wiki</a>
+- [x] <a href="https://bootswatch.com/">Free themes for Bootstrap</a>
+- [x] <a href="https://guides.rubyonrails.org/association_basics.html">Active Record Associations</a>
