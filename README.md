@@ -9,13 +9,19 @@
 <strong>Domain Modeling :: Space Travel</strong><br>
 Welcome to your Space Exploration, where you can select your space crew, pick your favorite spacecraft (powered by SpaceX), and infinite amount of planets in Milky Way Galaxy to travel to!<br>
 
-<p><a href="https://youtu.be/amt7y-bIKkk">YouTube Demo</a></p>
-<p><a href="https://dev.to/codinghall/api-cli-space-exploration-108f">DEV Blog</a></p>
+<p><a href="https://youtu.be/pvurDvp8TZY">YouTube Demo</a></p>
+<p><a href="https://dev.to/codinghall/sinatra-x-street-fighter-1hgl">DEV Blog</a></p>
 
 
 ## About
 
 ## Features
+
+<div align="center">
+  <img src="erd.jpg">
+</div>
+
+<br>
 
 1.  Build an MVC Sinatra application =>
 	```
