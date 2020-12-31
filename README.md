@@ -83,3 +83,4 @@ Open Chrome browser, and redirect to 'http://localhost:9292' to start the app.
 - [x] SQLite
 - [x] HTML/CSS
 - [x] Rack-flash3
+- [x] Bootswatch
