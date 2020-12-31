@@ -18,7 +18,7 @@ Welcome to your Space Exploration, where you can select your space crew, pick yo
 ## Features
 
 <div align="center">
-  <img src="erd.jpg">
+  <img src="./public/images/erd.jpeg">
 </div>
 
 <br>
