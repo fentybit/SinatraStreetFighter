@@ -1,7 +1,7 @@
 # Sinatra::Street Fighter
 
 <div align="center">
-  <img src="./space.png">
+  <img src="./public/images/main.png">
 </div>
 
 <br>
