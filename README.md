@@ -50,21 +50,21 @@ Moves :: edit, new<br>
 Stages :: edit, new</p>
 
 **Controller** 
-<ul>ApplicationController<br>
+<p>ApplicationController<br>
 CharactersController<br>
 MovesController<br>
 StagesController<br>
-UsersController</ul>
+UsersController</p>
 
 **User Account and Validation**
 <p>Sign Up<br>
 Edit<br>
 Sign Out<br>
-*validate_uniqueness_of*<br>
-*validates_presence_of*</p>
+<i>validate_uniqueness_of</i><br>
+  <i>validates_presence_of</i></p>
 
 **CRUD**
-Each user has the CRUD capabilities that is unique to each respective user.
+Each user has the CRUD (Create, Read, Update and Delete) capabilities that is unique to each respective user.
     
 ## Installation
 
