@@ -11,7 +11,7 @@ Welcome to my simplistic version of Street Fighter simulation.<br>
 You can select a character, add fighting moves and a final stage where your epic battle commences!<br>
 
 <p><a href="https://youtu.be/pvurDvp8TZY">YouTube Demo</a></p>
-<p><a href="https://dev.to/codinghall/sinatra-x-street-fighter-1hgl">DEV Blog</a></p>
+<p><a href="https://dev.to/fentybit/sinatra-x-street-fighter-1hgl">DEV Blog</a></p>
 
 
 ## About
